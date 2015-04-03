@@ -7,9 +7,19 @@
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
 
   <ul>
-    <li ng-repeat="person in mainCtrl.list">
+    <li class="person" ng-repeat="person in mainCtrl.list">
+
       <h4>Name: {{person.name}}</h4>
+      <img ng-src={{person.image}}>
       <p> Description: {{person.description}}</p>
+      <p> Link: {{person.link}}</p>
+      <p> Category: {{person.category}}</p>
+
+      <p> Keywords:</p>
+      <ul>
+        <li ng-repeat="word in person.keywords">{{word}}</li>
+      </ul>
+
     </li>
   </ul>
 

@@ -9,13 +9,15 @@ angular.module('100days',[])
     image: 'http://placehold.it/250/227594/fff',
     description:'Vestibulum id ligula porta felis euismod semper.',
     link:'http://twitter.com',
-    keywords: ' Magna Pharetra Tristique Venenatis Fringilla'
+    category: 'music',
+    keywords: ['Magna Pharetra','Tristique', 'Venenatis' , 'Fringilla']
     },{
       name: 'Wisam',
       image: 'http://placehold.it/250/944122/fff',
       description: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
+      category:'drawing',
       link:'http://google.com',
-      keywords: 'Elit Cras Cursus Fringilla Bibendum'
+      keywords: ['Elit', 'Cras' ,'Cursus' ,'Fringilla', 'Bibendum']
     }];
 
   service.getAll = function(){
