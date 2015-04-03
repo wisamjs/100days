@@ -5,6 +5,10 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var watch = require('gulp-watch');
 
+var paths = {
+  js:'app.js'
+};
+
 
 gulp.task('devServer', function() {
  connect.server({
@@ -14,5 +18,9 @@ gulp.task('devServer', function() {
   });
 });
 
+gulp.task('watch', function() {
+    watch(paths.js).pipe(connect.reload());
+});
 
-gulp.task('dev',['devServer']);
+
+gulp.task('dev',['devServer','watch']);
