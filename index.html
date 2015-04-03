@@ -3,30 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>100 Days</title>
+  <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
   <header>
-    <div class="logo"></div>
-    <div class="search">
-      <form action="" id="search"></form>
+    <div class="logo">
+      <h1>#100daysof</h1>
     </div>
-    <div class="filter">
-      <div class="category">
-        <label>Category</label>
-        <input ng-model="dataFilter.category">
-      </div>
-      <div class="person">
-        <label>Name</label>
-        <input ng-model="dataFilter.name">
-      </div>
-      <div class="keyword">
-        <label>Keywords</label>
-        <input ng-model="dataFilter.keywords">
-      </div>
+    <div class="menu">
+    
     </div>
-    <div class="sort">
+    <div class="slideout">
+      <div class="search">
+        <form action="" id="search"></form>
+      </div>
+      <div class="filter">
+        <div class="category">
+          <label>Category</label>
+          <input ng-model="dataFilter.category">
+        </div>
+<!--         <div class="person">
+          <label>Name</label>
+          <input ng-model="dataFilter.name">
+        </div> -->
+        <div class="keyword">
+          <label>Keywords</label>
+          <input ng-model="dataFilter.keywords">
+        </div>
+      </div>
+      <div class="sort">
 
+      </div>
     </div>
+    
   </header>
   <ul>
     <li class="person" ng-repeat="person in mainCtrl.list | filter:dataFilter:strict">
