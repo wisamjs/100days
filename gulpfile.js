@@ -14,12 +14,22 @@ gulp.task('devServer', function() {
  connect.server({
   root: '',
   port: 3000,
-  livereload: false
+  livereload: true
   });
 });
 
 gulp.task('watch', function() {
     watch(paths.js).pipe(connect.reload());
+    gulp.watch('sass/*.scss', ['sass']);
+
+});
+
+// Precompile Sass
+gulp.task('sass', function() {
+  gulp.src('sass/style.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('.'))
+    .pipe(connect.reload());
 });
 
 
