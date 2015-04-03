@@ -33,4 +33,4 @@ gulp.task('sass', function() {
 });
 
 
-gulp.task('dev',['devServer','watch']);
+gulp.task('dev',['sass','devServer','watch']);
