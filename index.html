@@ -6,6 +6,13 @@
 </head>
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
 
+  <ul>
+    <li ng-repeat="person in mainCtrl.list">
+      <h4>Name: {{person.name}}</h4>
+      <p> Description: {{person.description}}</p>
+    </li>
+  </ul>
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="app.js"></script>
 </body>
