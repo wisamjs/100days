@@ -1,3 +1,5 @@
 node_modules
 bower_components
 style.css
+js/.DS_Store
+sass/vendor/.DS_Store

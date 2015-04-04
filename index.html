@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>100 Days</title>
-  <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
@@ -11,13 +11,13 @@
     <div class="logo">
       <h1>#100daysof</h1>
     </div>
-    <div class="menu">
+<!--     <div class="menu">
 
-    </div>
-  </header>
-  <div class="slideout">
+    </div> -->
     <div class="search">
-      <form action="" id="search"></form>
+      <form action="" id="search">
+        <input tabindex="1" type="text" name="q" id="search_query" placeholder="Search" value="">
+      </form>
     </div>
     <div class="filter">
       <div class="category">
@@ -32,24 +32,41 @@
     <div class="sort">
 
     </div>
+  </header>
+  <div class="slideout">
+    
   </div>
+  <div id="container">
+    <div class="item person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
+      <figure>
+        <a href="{{person.link}}"><img ng-src={{person.image}}></a>
+        <figcaption>
+          <p class="name">{{person.name}}</p>
+          <p class="desc">{{person.description}}</p>
+          <p class="category">{{person.category}}</p>
+          <ul class="keywords">
+            <li class="keyword" ng-repeat="word in person.keywords">{{word}}</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </div>
+   <!--  <ul>
+      <li class="person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
 
-  <ul>
-    <li class="person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
+        <h4>Name: {{person.name}}</h4>
+        <img ng-src={{person.image}}>
+        <p> Description: {{person.description}}</p>
+        <p> Link: {{person.link}}</p>
+        <p> Category: {{person.category}}</p>
 
-      <h4>Name: {{person.name}}</h4>
-      <img ng-src={{person.image}}>
-      <p> Description: {{person.description}}</p>
-      <p> Link: {{person.link}}</p>
-      <p> Category: {{person.category}}</p>
+        <p> Keywords:</p>
+        <ul>
+          <li ng-repeat="word in person.keywords">{{word}}</li>
+        </ul>
 
-      <p> Keywords:</p>
-      <ul>
-        <li ng-repeat="word in person.keywords">{{word}}</li>
-      </ul>
-
-    </li>
-  </ul>
+      </li>
+    </ul> -->
+  </section>
   <script src="bower_components/tabletop/src/tabletop.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/3rdParty.js"></script>

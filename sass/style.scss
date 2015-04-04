@@ -1,11 +1,71 @@
 /* ==========================================================================
+   IMPORT
+   ========================================================================== */
+
+   @import "normalize";
+   @import "vendor/vendor";
+
+
+
+/* ==========================================================================
+   BORDER-BOX
+   ========================================================================== */
+
+	* {
+		box-sizing: border-box;
+	}
+
+
+
+/* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
 
+   $font-size-base: 16px;
+   $line-height-base: $font-size-base * 1.5;
+   $baseline: 24px;
+   $baseline-em: em(24);
+   $font-size-em: em(16);
+
+   @mixin type($fz, $lh) {
+   	font-size: $fz;
+   	line-height: $lh;
+   }
+
+   body {
+   	font-family: "Droid Sans Mono";
+   	@include type(16px, 24px);
+   	// background-color: #081620;
+   	// color: white;
+   }
+
    h1 {
-   	font-family: "Bree Serif";
+   	@include type(24px, 36px);
    }
 
 
 
-@import "vendor/vendor";
+/* ==========================================================================
+   LAYOUT - ISOTOPE
+   ========================================================================== */
+
+
+   #container {
+   	// height: 80vh;
+   	background-color: #ddd;
+   }
+
+   .item {
+     float: left;
+     width: 300px;
+     max-height: 400px;
+     overflow-y: scroll;
+     background: #0D8;
+     border: 1px solid #333;
+     border-color: hsla(0, 0%, 0%, 0.7);
+   }
+
+
+
+
+
