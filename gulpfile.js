@@ -6,7 +6,7 @@ var connect = require('gulp-connect');
 var watch = require('gulp-watch');
 
 var paths = {
-  js:'app.js'
+  js:['js/3rdParty.js','js/app.js']
 };
 
 
