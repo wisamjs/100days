@@ -35,35 +35,108 @@
    body {
    	font-family: "Droid Sans Mono";
    	@include type(16px, 24px);
-   	// background-color: #081620;
-   	// color: white;
    }
 
    h1 {
    	@include type(24px, 36px);
    }
 
+   li {
+   	list-style: none;
+   	display: inline-block;
+   }
+
 
 
 /* ==========================================================================
-   LAYOUT - ISOTOPE
+   LAYOUT
    ========================================================================== */
 
+/* Large 
+	 1088px
+	 container = 12 col
+	 item = 4 col*/
 
-   #container {
-   	// height: 80vh;
-   	background-color: #ddd;
-   }
+	 $large: 1088px;
+	 $large-col: 12;
+	 $large-span: 4;
 
-   .item {
-     float: left;
-     width: 300px;
-     max-height: 400px;
-     overflow-y: scroll;
-     background: #0D8;
-     border: 1px solid #333;
-     border-color: hsla(0, 0%, 0%, 0.7);
-   }
+
+
+
+/* Medium
+	 880px
+	 container = 12col
+	 item - 6 col*/
+
+	 $medium: 880px;
+	 $medium-col: 12;
+	 $medium-span: 6;
+
+
+
+
+/* Small 
+	 560px
+	 container = 4 col
+	 item = 4 col*/   
+
+	 $small: 640px;
+	 $small-col: 4;
+	 $small-span: 4;
+
+
+$breakpoints: (
+	large: (
+		width: 1088px,
+		col: 12,
+		span: 4
+	),
+	medium: (
+		width: 880px,
+		col:12,
+		span: 6
+	),
+	small: (
+		with: 640px,
+		col: 4,
+		span: 4
+	)
+);
+
+@mixin media-queries($width-min, $width-max, $col, $span) {
+	@include media(min-width $width-min max-width $width-max, $col) {
+		@include span-columns($span of $col);
+		&:nth-child(#{($col/$span)}n) {
+			@include omega();
+		} 
+	}
+}
+
+
+#container {
+	// background-color: #ddd;
+	@include outer-container;
+	@include clearfix;
+}
+
+.item {
+	@include media(min-width 880px, 12) {
+		@include span-columns(4 of 12);
+		&:nth-child(3n) {
+			@include omega();
+		}
+	}
+	@include media(min-width 640px max-width 880px, 12) {
+		@include span-columns(6 of 12);
+		&:nth-child(2n) {
+			@include omega();
+		}
+	}
+
+	margin-bottom: $gutter;
+ 	background: #eee;
+}
 
 
 
