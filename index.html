@@ -37,8 +37,8 @@
   <div class="slideout">
 
   </div>
-  <sectionclass="isotope">
-    <article class="isotope-item" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
+  <section class="container">
+    <article class="item" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
       <figure>
         <a href="{{person.link}}"><img ng-src={{person.image}}></a>
         <figcaption>
