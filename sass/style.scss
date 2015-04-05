@@ -58,7 +58,7 @@
 	img {
 		height: 48px;
 	}
-	// @include span-columns(2);
+	@include span-columns(2);
 }
 
 
@@ -149,11 +149,14 @@
 	@include clearfix;
 }
 
-.item {
+.item{
 	@include media(min-width 880px, 12) {
 		@include span-columns(4 of 12);
 		&:nth-child(3n) {
 			@include omega();
+		}
+		img {
+			@include span-columns(4 of 4);
 		}
 	}
 	@include media(min-width 640px max-width 880px, 12) {
@@ -169,13 +172,12 @@
 
 
 .search {
-	form {
-		
-	}
+	@include span-columns(4);
+	// margin-right: $gutter;
 	padding: 12px 0;
 	input[type="text"] {
 		@include type(16px, 24px);
-		@include span-columns(5);
+		@include span-columns(4 of 4);
 		height: 48px;
 		padding: 0 12px;
 		@include placeholder {
@@ -184,6 +186,24 @@
 	}
 }
 
+.filter {
+		@include span-columns(6);
+		@include omega();
+		padding: 12px 0;
+	.category,
+	.keyword {
+		@include span-columns(3 of 6);
+		input {
+			@include type(16px, 24px);
+			@include span-columns(3 of 3);
+			height: 48px;
+			padding: 0 12px;
+			@include placeholder {
+				color: #383F4A;
+			}
+		}
+	}
+}
 
 
 
