@@ -8,17 +8,18 @@
 </head>
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
   <header>
+  <div class="container">
     <div class="logo">
-      <h1>#100daysof</h1>
+      <a href="/">
+        <img src="logo-100days.svg" alt="" >
+      </a>
     </div>
-<!--     <div class="menu">
-
-    </div> -->
     <div class="search">
       <form action="" id="search">
-        <input tabindex="1" type="text" name="q" id="search_query" placeholder="Search" value="">
+        <input tabindex="1" type="text" name="q" id="search-query" placeholder="Search" class="search-query" value="">
       </form>
     </div>
+  </div>
     <div class="filter">
       <div class="category">
         <label>Category</label>
@@ -36,7 +37,7 @@
   <div class="slideout">
     
   </div>
-  <div id="container">
+  <div class="container">
     <div class="item person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
       <figure>
         <a href="{{person.link}}"><img ng-src={{person.image}}></a>
