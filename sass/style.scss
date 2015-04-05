@@ -33,7 +33,7 @@
    }
 
    body {
-   	font-family: "Droid Sans Mono";
+   	font-family: "Droid Sans";
    	// @include type(16px, 24px);
    }
 
@@ -54,6 +54,7 @@
 
 header {
 	position: fixed;
+	z-index:3;
 	background-color: #ddd;
 	width: 100%;
 }
@@ -154,9 +155,12 @@ header {
 		&:nth-child(3n) {
 			@include omega();
 		}
+		a {
+			@include clearfix;
+		}
 		img {
 			@include span-columns(4 of 4);
-			margin-bottom: 24px;
+			// margin-bottom: 24px;
 		}
 	}
 	@include media(min-width 640px max-width 880px, 12) {
@@ -165,13 +169,13 @@ header {
 			@include omega();
 		}
 	}
-	margin-bottom: $gutter;
- 	background: #eee;
- 	
+	margin-bottom: $gutter * 2;
+ 	// background: #eee;
 }
 
 figcaption {
-	padding: 12px;
+	padding: 24px 0;
+	border-bottom: 3px solid #333;
 }
 
 p {
@@ -179,20 +183,36 @@ p {
 }
 
 .name {
-	// 	&::before {
-	// 		content: '';
-	// 		position: absolute;
-	// 		top: 78%;
-	// 		height: 5px;
-	// 		width: 200px;
-	// 		display: block;
-	// 		background-color: #333;
-	// }
-	@include type(16px, 24px);
+	@include type(18px, 24px);
+	font-weight: bold;
+
 }
 
+.name-wrapper{
+	position: relative;
+	// margin-bottom: 24px;
+	padding: 18px 0 6px;
+	// &:before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 0;
+	// 	height: 3px;
+	// 	width: 24px;
+	// 	background-color: #333;
+	// }
+	// border-bottom: 3px solid #333;
+	border-top: 3px solid #333;
+}
 .desc {
-	@include type(12px, 18px);
+	font-family: "Droid Serif", serif;
+	// font-style: italic;
+	@include type(16px, 24px);
+	max-height: 72px;
+	overflow: scroll;
+	// white-space: nowrap;
+	// -webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	text-overflow: ellipsis
 }
 
 

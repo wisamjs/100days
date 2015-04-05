@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>100 Days</title>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="100days" ng-controller="MainController as mainCtrl">
@@ -42,8 +43,12 @@
       <figure>
         <a href="{{person.link}}"><img ng-src={{person.image}}></a>
         <figcaption>
-          <p class="name">{{person.name}}</p>
-          <p class="desc">{{person.description}}</p>
+          <div class="name-wrapper">
+            <p class="name">{{person.name}} - 100 Days of {{person.category}}</p>
+          </div>
+          <div class="desc-wrapper">
+            <p class="desc">{{person.description}}</p>
+          </div>
           <p class="category">{{person.category}}</p>
           <ul class="keywords">
             <li class="keyword" ng-repeat="word in person.keywords">{{word}}</li>
