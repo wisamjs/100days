@@ -52,115 +52,137 @@
    LAYOUT
    ========================================================================== */
 
-/* Large 
-	 1088px
-	 container = 12 col
-	 item = 4 col*/
-
-	 $large: 1088px;
-	 $large-col: 12;
-	 $large-span: 4;
-
-
-
-
-/* Medium
-	 880px
-	 container = 12col
-	 item - 6 col*/
-
-	 $medium: 880px;
-	 $medium-col: 12;
-	 $medium-span: 6;
-
-
-
-
-/* Small 
-	 560px
-	 container = 4 col
-	 item = 4 col*/   
-
-	 $small: 640px;
-	 $small-col: 4;
-	 $small-span: 4;
-
-
-$breakpoints: (
-	large: (
-		width: 1088px,
-		col: 12,
-		span: 4
-	),
-	medium: (
-		width: 880px,
-		col:12,
-		span: 6
-	),
-	small: (
-		with: 640px,
-		col: 4,
-		span: 4
-	)
-);
-
-@mixin media-queries($width-min, $width-max, $col, $span) {
-	@include media(min-width $width-min max-width $width-max, $col) {
-		@include span-columns($span of $col);
-		&:nth-child(#{($col/$span)}n) {
-			@include omega();
-		} 
-	}
-}
-
-
-.container {
-	// background-color: #ddd;
-	@include outer-container;
-	@include clearfix;
-}
-
-.item {
-	@include media(min-width 880px, 12) {
-		@include span-columns(4 of 12);
-		&:nth-child(3n) {
-			@include omega();
-		}
-	}
-	@include media(min-width 640px max-width 880px, 12) {
-		@include span-columns(6 of 12);
-		&:nth-child(2n) {
-			@include omega();
-		}
-	}
-	margin-bottom: $gutter;
- 	background: #eee;
-}
-
+/* LOGO */
 .logo {
 	padding: 12px;
 	img {
 		height: 48px;
 	}
-	@include span-columns(2);
+	// @include span-columns(2);
 }
 
-.search {
-	form {
-		
-	}
-	padding: 12px 0;
-	input[type="text"] {
-		@include type(16px, 24px);
-		@include span-columns(5);
-		// width: $column * 5 + $gutter * 4;
-		height: 48px;
-		padding: 0 12px;
-		@include placeholder {
-			color: #383F4A;
-		}
-	}
+
+
+/* ==========================================================================
+   LAYOUT W/ ISOTOPE
+   ========================================================================== */
+
+#container {
+	max-width: 1200px;
 }
+
+.isotope-item {
+  float: left;
+  width: 250px;
+  height: 500px;
+  overflow-y: scroll;
+  // width: calc(33.3% - 24px);
+  // height: 300px;
+  // @include span-columns(4);
+	margin: 12px;
+	background-color: #ddd;
+}
+
+/* ==========================================================================
+   ISOTOPE TRANSITION
+   ========================================================================== */
+.isotope-item {
+	z-index: 2;
+	@include transition(all, 0.8s, ease-in-out);
+}
+
+.isotope {
+	@include transition(all, 0.8s, ease-in-out)
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   LAYOUT W/ BOURBON
+   ========================================================================== */
+
+// $breakpoints: (
+// 	large: (
+// 		width: 1088px,
+// 		col: 12,
+// 		span: 4
+// 	),
+// 	medium: (
+// 		width: 880px,
+// 		col:12,
+// 		span: 6
+// 	),
+// 	small: (
+// 		with: 640px,
+// 		col: 4,
+// 		span: 4
+// 	)
+// );
+
+// @mixin media-queries($width-min, $width-max, $col, $span) {
+// 	@include media(min-width $width-min max-width $width-max, $col) {
+// 		@include span-columns($span of $col);
+// 		&:nth-child(#{($col/$span)}n) {
+// 			@include omega();
+// 		} 
+// 	}
+// }
+
+
+.container {
+	// width: calc(100% + 24px);
+	// background-color: #ddd;
+	@include outer-container;
+	@include clearfix;
+}
+
+// .item {
+// 	@include media(min-width 880px, 12) {
+// 		@include span-columns(4 of 12);
+// 		&:nth-child(3n) {
+// 			@include omega();
+// 		}
+// 	}
+// 	@include media(min-width 640px max-width 880px, 12) {
+// 		@include span-columns(6 of 12);
+// 		&:nth-child(2n) {
+// 			@include omega();
+// 		}
+// 	}
+// 	margin-bottom: $gutter;
+//  	background: #eee;
+// }
+
+
+
+// .search {
+// 	form {
+		
+// 	}
+// 	padding: 12px 0;
+// 	input[type="text"] {
+// 		@include type(16px, 24px);
+// 		@include span-columns(5);
+// 		height: 48px;
+// 		padding: 0 12px;
+// 		@include placeholder {
+// 			color: #383F4A;
+// 		}
+// 	}
+// }
 
 
 

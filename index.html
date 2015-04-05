@@ -37,8 +37,8 @@
   <div class="slideout">
     
   </div>
-  <div class="container">
-    <div class="item person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
+  <section isotope-container="isotope-container" class="isotope">
+    <article class="isotope-item" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict" isotope-item="isotope-item">
       <figure>
         <a href="{{person.link}}"><img ng-src={{person.image}}></a>
         <figcaption>
@@ -50,7 +50,7 @@
           </ul>
         </figcaption>
       </figure>
-    </div>
+    </article>
    <!--  <ul>
       <li class="person" ng-repeat="person in mainCtrl.list| filter:dataFilter:strict">
 
@@ -70,6 +70,8 @@
   </section>
   <script src="bower_components/tabletop/src/tabletop.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="js/vendor/jquery.isotope.min.js"></script>
+  <script src="js/vendro/angular-isotope.min.js"></script>
   <script src="js/3rdParty.js"></script>
   <script src="js/app.js"></script>
 </body>
