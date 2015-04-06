@@ -49,10 +49,12 @@
           <div class="desc-wrapper">
             <p class="desc">{{person.description}}</p>
           </div>
-          <p class="category">{{person.category}}</p>
-          <ul class="keywords">
-            <li class="keyword" ng-repeat="word in person.keywords">{{word}}</li>
-          </ul>
+          <div class="filter-wrapper">
+            <p class="category">{{person.category}}</p>
+            <ul class="keywords">
+              <li class="keyword" ng-repeat="word in person.keywords">{{word}}</li>
+            </ul>
+          </div>
         </figcaption>
       </figure>
     </article>

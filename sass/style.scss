@@ -34,6 +34,7 @@
 
    body {
    	font-family: "Droid Sans";
+   	// background-color: #01C1B2;
    	// @include type(16px, 24px);
    }
 
@@ -52,16 +53,20 @@
    LAYOUT
    ========================================================================== */
 
+$max-width: 1230px;
+
+
+
 header {
 	position: fixed;
 	z-index:3;
-	background-color: #ddd;
+	background-color: #1E2326;
 	width: 100%;
 }
 
 .header-container {
 	@include outer-container;
-	padding: 24px 0 12px;
+	padding: 24px 0;
 }
 
 
@@ -76,16 +81,33 @@ header {
 
 
 /* Serach and Filter */
+
+@mixin input-field ($height:48px, $padding: 0 12px, $border: none, $bgc: #444D57) {
+	height: $height;
+	padding: $padding;
+	border: $border;
+	background-color: $bgc;
+	&:hover {
+		background-color: lighten($bgc, 10);
+	}
+	&:focus {
+		background-color: lighten($bgc, 20);
+		outline: none;
+		@include placeholder {
+			opacity:0;
+		}
+	}
+	@include transition(all, 0.3s, ease-in);
+	@include placeholder {
+		color: lighten($bgc, 40);
+	}
+}
 .search {
 	@include span-columns(4);
 	input[type="text"] {
 		@include type(16px, 24px);
 		@include span-columns(4 of 4);
-		height: 48px;
-		padding: 0 12px;
-		@include placeholder {
-			color: #383F4A;
-		}
+		@include input-field;
 	}
 }
 
@@ -98,11 +120,7 @@ header {
 		input {
 			@include type(16px, 24px);
 			@include span-columns(3 of 3);
-			height: 48px;
-			padding: 0 12px;
-			@include placeholder {
-				color: #383F4A;
-			}
+			@include input-field;
 		}
 	}
 }
@@ -142,10 +160,8 @@ header {
 
 
 .container {
-	// width: calc(100% + 24px);
-	// background-color: #ddd;
 	@include outer-container;
-	padding: 120px 0;
+	padding: 132px 0;
 	@include clearfix;
 }
 
@@ -170,12 +186,15 @@ header {
 		}
 	}
 	margin-bottom: $gutter * 2;
- 	// background: #eee;
 }
 
+
+
 figcaption {
-	padding: 24px 0;
-	border-bottom: 3px solid #333;
+	// padding: 24px 0 0;
+	border-top: 12px solid #1E2326;
+	border-bottom: 12px solid #1E2326;
+	background-color: #fff;
 }
 
 p {
@@ -189,30 +208,33 @@ p {
 }
 
 .name-wrapper{
-	position: relative;
-	// margin-bottom: 24px;
-	padding: 18px 0 6px;
-	// &:before {
-	// 	content: "";
-	// 	position: absolute;
-	// 	top: 0;
-	// 	height: 3px;
-	// 	width: 24px;
-	// 	background-color: #333;
-	// }
-	// border-bottom: 3px solid #333;
-	border-top: 3px solid #333;
+	padding: 18px 18px 6px;
+	// border-top: 5px solid #666;
+	text-transform: uppercase;
+
 }
+
+.desc-wrapper {
+	padding: 0 18px 12px;
+	// padding-bottom: 12px;
+	border-bottom: 1px solid #aaa;
+}
+
 .desc {
 	font-family: "Droid Serif", serif;
-	// font-style: italic;
 	@include type(16px, 24px);
-	max-height: 72px;
-	overflow: scroll;
-	// white-space: nowrap;
-	// -webkit-box-orient: vertical;
+	max-height: 96px;
+	overflow: hidden;
+	display: -webkit-box;
 	-webkit-line-clamp: 3;
-	text-overflow: ellipsis
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+.filter-wrapper {
+	padding: 18px;
+	color: #666;
+	@include type(14px, 18px);
 }
 
 
